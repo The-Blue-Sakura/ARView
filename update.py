@@ -4,25 +4,20 @@ packInfo = 'https://raw.githubusercontent.com/The-Blue-Sakura/ARView/master/upd.
 
 r = requests.get(packInfo)
 print 'Downloading file upd.8'
-
 f = open("upd.8", "w")
 f.write(r.text)
 f.close()
 print "File Saved: upd.8"
-print "CAN THE UPDATER UPDATE THE UPDATER"
+
 f = open("upd.8", "r")
 cverfile = open("currentversion", "r")
 
 updateVersion = f.readline()
 currentVersion = cverfile.readline()
 cverfile.close()
-print "UPDATE VERSION: "
-print updateVersion
-print "CURRENT VERSION: "
-print currentVersion
 
 if(int(updateVersion) > int(currentVersion)):
-    print "UPDATE REQUIRED. UPDATING!"
+    print "An update is required. Now updating to version ", updateVersion
     filename = f.readline().strip("\n")
     while True:
         print filename
