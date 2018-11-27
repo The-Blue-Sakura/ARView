@@ -1,0 +1,14 @@
+class DisplayApplet():
+    #Notification Center: 128x8
+    #Applet Window: 128x24
+    def appletLoad(self):
+        print("ToDo: DisplayApplet")
+
+    def appletMain(self):
+        print("ToDo: SecurityApplet Main Method")
+    
+    def appletUnload(self):
+        print("ToDo: SecurityApplet Unload Method")
+    
+    def __init__(self):
+        self.appletLoad()
