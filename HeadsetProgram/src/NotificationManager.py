@@ -1,5 +1,5 @@
 class NotificationManager():
-    notifications = [0, None, None, None, None, None, None, None, None, None, None, None, None, None, None]
+    notifications = [None, None, None, None, None, None, None, None, None, None, None, None, None, None, None]
     notificationSize = [8,8]
     timeSize = [16,8]
     def printNotificationList(self):
@@ -8,7 +8,8 @@ class NotificationManager():
 
     def addNotification(self, filename):
         notif = Notification(filename, filename)
-        
+        print(notif)
+
         for i in range(len(self.notifications)):
             if(self.notifications[i] == None):
                 self.notifications[i] = notif
@@ -30,9 +31,6 @@ class Notification():
     def __init__(self, name, image):
         self.name = name
         self.image = image
-    
-    def str(self):
-        return self.name
 
-    def __unicode__(self):
+    def __str__(self):
         return self.name

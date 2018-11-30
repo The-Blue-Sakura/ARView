@@ -1,13 +1,20 @@
 #Now using the Luma.OLED Display Driver.
 
 from NotificationManager import NotificationManager
+from timeApplet import TimeApplet
 
 class DisplayApplet():
-    #Notification Center: 128x8
-    #Applet Window: 128x24
+    nManager = NotificationManager() # Setup access to a global notification manager.
+    currentApplet = None
+    # Notification + Time Center: 128x8
+    # Applet Window: 128x24
     def appletLoad(self):
-        print("ToDo: DisplayApplet")
-        self.nManager = NotificationManager()
+        self.running = True
+        
+    @classmethod
+    def openApplet(cls, appletName):
+        #if(cls.currentApplet)
+        pass
 
     def appletMain(self):
         print("ToDo: DisplayApplet Main Method")
@@ -23,3 +30,15 @@ class DisplayApplet():
     
     def __init__(self):
         self.appletLoad()
+
+class DisplayObject():
+    def setDisplayObjectProperties(self, name, image):
+        self.name = name
+        self.image = image
+
+class TimeObject():
+    #Here is where we allocate space for the time in the notification area
+    # Size: Wx8
+    @classmethod
+    def getTimeObject(cls):
+        return TimeApplet.now
