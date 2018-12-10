@@ -3,16 +3,16 @@ from SystemUtilities import Format
 import time
 import datetime
 
-class TimeApplet():
-    APPDISPLAYMODE = 0
-    NOTIFICATIONDISPLAYMODE = 0
+class timeApplet():
+    APPDISPLAYMODE = 1
+    NOTIFICATIONDISPLAYMODE = 1
 
     amPM = "N/A"
     now = "%s:%s:%s %s" % (Format.timeTwelveHour()[0], datetime.datetime.now().minute, datetime.datetime.now().second, Format.timeTwelveHour()[1])
 
     def appletLoad(self):
         self.running = True
-        self.current_time = TimeApplet.now
+        self.current_time = timeApplet.now
         self.lastTime = "NULL"
 
     def appletMain(self):
@@ -35,7 +35,8 @@ class TimeApplet():
     
     @classmethod
     def getAppletDisplay(cls):
-        return cls.now
+        return (1, 2, cls.now)
+
     @classmethod
     def getAppletNotification(cls):
         return cls.now

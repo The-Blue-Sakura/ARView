@@ -1,20 +1,22 @@
 from multiprocessing import Process
 
-from DisplayApplet import DisplayApplet
+#from DisplayApplet import DisplayApplet
+from TestApplet import DisplayApplet
 from SecurityApplet import SecurityApplet
 from InputApplet import InputApplet
-from timeApplet import TimeApplet
+from timeApplet import timeApplet
 
 class Main():
     version = 2
 
     def main(self):
         print("Version: %c" % str(self.version))
+        #self.display = DisplayApplet()
         self.display = DisplayApplet()
         self.security = SecurityApplet()
         self.input = InputApplet()
 
-        self.time = TimeApplet()
+        self.time = timeApplet()
 
         #Create class and method to read a system registry file and load all registered applets
 
