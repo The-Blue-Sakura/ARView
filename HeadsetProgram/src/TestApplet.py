@@ -32,29 +32,32 @@ class DisplayApplet():
         print(f"applets: {self.applets}")
         self.currentApplet = self.applets[0]
         print(f"Time Applet Test Method: {self.AppletManager.get(self.currentApplet, 'Display')}")
+
+        #Multiprocessing
+        loop = Process(target=self.displayLoop, args=(1,))
+        loop.start()
         pass
+
+    def displayLoop(self, delaySeconds):
+        self.loop_running = True
+        while self.loop_running:
+            print(self.QUEUE.get())
+            #print(self.AppletManager.get(self.currentApplet, 'Display'))
+            time.sleep(delaySeconds)
+            #print(getattr(DisplayApplet.importedApplets[object], 'getAppletDisplay')())
+            pass
+
+    def stopDisplayLoop(self):
+        self.loop_running = False
 
     def appletUnload(self):
         print("ToDo: DisplayApplet Unload Method")
 
-    def __init__(self):
+    def __init__(self, queue):
+        self.QUEUE = queue
         self.appletLoad()
 
 class DisplayObject():
     def setDisplayObjectProperties(self, name, image):
         self.name = name
         self.image = image
-
-class DisplayWindow():
-    loop_running = False
-
-    @staticmethod
-    def displayLoop(object, delaySeconds):
-        DisplayWindow.loop_running = True
-        while DisplayWindow.loop_running:
-            #print(getattr(DisplayApplet.importedApplets[object], 'getAppletDisplay')())
-            pass
-
-    @staticmethod
-    def stopDisplayLoop():
-        DisplayWindow.loop_running = False

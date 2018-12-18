@@ -1,4 +1,4 @@
-from multiprocessing import Process
+from multiprocessing import Process, Queue
 
 #from DisplayApplet import DisplayApplet
 from TestApplet import DisplayApplet
@@ -11,12 +11,14 @@ class Main():
 
     def main(self):
         print("Version: %c" % str(self.version))
+        #Multiprocess Communication
+        queue = Queue()
         #self.display = DisplayApplet()
-        self.display = DisplayApplet()
+        self.display = DisplayApplet(queue)
         self.security = SecurityApplet()
         self.input = InputApplet()
-
-        self.time = timeApplet()
+        
+        self.time = timeApplet(queue, None)
 
         #Create class and method to read a system registry file and load all registered applets
 

@@ -25,6 +25,7 @@ class timeApplet():
             if self.current_time != self.lastTime:
                 self.lastTime = self.current_time
             self.current_time = self.now
+            self.QUEUE.put(self.current_time)
             time.sleep(0.1)
 
     def getTime(self):
@@ -41,5 +42,6 @@ class timeApplet():
     def getAppletNotification(cls):
         return cls.now
 
-    def __init__(self):
+    def __init__(self, queue, a):
+        self.QUEUE = queue
         self.appletLoad()

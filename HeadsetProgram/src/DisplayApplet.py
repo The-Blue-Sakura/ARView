@@ -33,12 +33,12 @@ class DisplayApplet():
 
     def appletMain(self):
         print("ToDo: DisplayApplet Main Method")
-        print("Notifications: %s" % self.nManager.getNotificationList())
-        print("\n Adding Test Notification \n")
-        self.nManager.addNotification("fl")
-        print("Notifications: %s \n \n" % self.nManager.getNotificationList())
-        print("Notification Size: %s" % self.nManager.getNotificationSize())
-        print("Time Size: %s" % self.nManager.getTimeSize())
+        #print("Notifications: %s" % self.nManager.getNotificationList())
+        #print("\n Adding Test Notification \n")
+        #self.nManager.addNotification("fl")
+        #print("Notifications: %s \n \n" % self.nManager.getNotificationList())
+        #print("Notification Size: %s" % self.nManager.getNotificationSize())
+        #print("Time Size: %s" % self.nManager.getTimeSize())
         
         #Open the first applet
         DisplayApplet.currentApplet = "time"
