@@ -36,7 +36,8 @@ class AppletRegistry():
                 break
             appletNames.append(tempName)
         regFile.close()
-        print(f"Applets: {appletNames}")
+        # Applet Registry Debug Code
+        # print(f"Applets: {appletNames}")
         return appletNames
     
     @staticmethod
@@ -49,7 +50,8 @@ class AppletRegistry():
                 break
             appletNames.append(tempName)
         regFile.close()
-        print(f"Applets: {appletNames}")
+        # Applet Registry Debug Code
+        #print(f"Applets: {appletNames}")
         return appletNames
 
     @staticmethod

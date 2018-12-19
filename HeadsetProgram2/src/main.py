@@ -2,7 +2,8 @@ from multiprocessing import Process, Queue
 import time
 
 from DisplayApplet import DisplayTest
-from SecurityApplet import FileScanner
+import Input
+import SecurityApplet
 
 class Main():
     '''
@@ -18,21 +19,44 @@ class Main():
 
     def __init__(self):
         self.displayTest = DisplayTest() # Create an instance of the display test.
-        self.fileScanner = FileScanner()
+        self.security = SecurityApplet.SecurityApplet() # Create an instance of the security applet
+        self.inputManager = Input.InputManager() # Create an instance of the Input Manager
+        self.running = False
+        self.applets = []
+        self.appletObjects = []
+        self.currentApplet = 0
 
     def main(self):
         print(f"Version: {Main.version}")
         #Establish Multiprocess Communication
         queue = Queue()
 
-        displayTestProcess = Process(target=self.displayTest.main, args=(queue, )) # Create a new process object to run the display test concurrently.
+        displayTestProcess = Process(target=self.displayTest.startAnimation, args=(queue, )) # Create a new process object to run the display test concurrently.
         displayTestProcess.start() # Start running the display test.
 
-        self.fileScanner.verifySystemFiles() # Verify System Files
+        self.security.verify() # Verify System Files
+
+        self.applets = self.security.getVerifiedApplets() # Get a list of verified, installed applets
+
+        for entry in self.applets:
+            self.appletObjects.append(getattr(__import__(entry), entry)()) # Import all valid applets
+            print(f"Imported: {entry}")
+
+        self.currentApplet = self.applets.index("timeApplet") # Set the current applet to the time applet
+        print(self.applets.index("timeApplet"))
         
         print("EXITING DISPLAY TEST")
         queue.put(False)
 
+        print("MAIN LOOP")
+        while self.running:
+            appInput = self.inputManager.getInput()
+            self.appletObjects[self.currentApplet].step(appInput)
+            appDisplay = self.appletObjects[self.currentApplet].getDisplay()
+            self.displayTest.display(appDisplay)
+            
+
 if __name__ == '__main__':
     main = Main()
+    main.running = True
     main.main()
