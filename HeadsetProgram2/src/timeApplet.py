@@ -1,6 +1,4 @@
-from multiprocessing import Process
 from SystemUtilities import Format
-import time
 import datetime
 
 class timeApplet():

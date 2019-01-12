@@ -1,7 +1,7 @@
 from multiprocessing import Process, Queue
 import time
 
-from DisplayApplet import DisplayTest
+from DisplayApplet import PygameDisplay as DisplayTest
 import Input
 import SecurityApplet
 
@@ -45,8 +45,9 @@ class Main():
         self.currentApplet = self.applets.index("timeApplet") # Set the current applet to the time applet
         print(self.applets.index("timeApplet"))
         
-        print("EXITING DISPLAY TEST")
+        print("SENDING ANIMATION EXIT COMMAND")
         queue.put(False)
+        displayTestProcess.join()
 
         print("MAIN LOOP")
         while self.running:
