@@ -1,7 +1,7 @@
 from multiprocessing import Process, Queue
 import time
 
-from DisplayApplet import PygameDisplay as DisplayTest
+from DisplayApplet import SystemDisplay as DisplayTest
 import Input
 import SecurityApplet
 
