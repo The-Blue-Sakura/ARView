@@ -52,6 +52,7 @@ class Main():
         print("SENDING ANIMATION EXIT COMMAND")
         queue.put(False)
         displayTestProcess.join()
+        time.sleep(0.5)
 
         print("MAIN LOOP")
         while self.running:
