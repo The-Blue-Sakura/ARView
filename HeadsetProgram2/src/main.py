@@ -1,7 +1,7 @@
 from multiprocessing import Process, Queue
 import time
 
-from DisplayApplet import TestDisplay as Display
+from DisplayApplet import SystemDisplay as Display
 from DisplayApplet import DisplayAnimations, DisplayHelpers
 import Input
 import SecurityApplet
