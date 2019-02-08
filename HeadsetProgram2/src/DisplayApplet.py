@@ -78,6 +78,7 @@ class SystemDisplay():
         draw.rectangle(self.device.bounding_box, outline="white", fill="black")
 
     def display(self, toDisplay, draw):
+        self.clearDisplay(draw)
         draw.text((30, 40), toDisplay, fill="white")
         print(f"--postDraw - {toDisplay}")
         print(f"--postDrawWith - {toDisplay}")
