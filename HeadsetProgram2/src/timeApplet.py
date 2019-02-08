@@ -4,6 +4,7 @@ import datetime
 
 class timeApplet():
     def __init__(self):
+        self.name = "Time Applet"
         self.now = "%s:%s:%s %s" % (Format.timeTwelveHour()[0], datetime.datetime.now().minute, datetime.datetime.now().second, Format.timeTwelveHour()[1])
         self.amPM = "N/A"
 

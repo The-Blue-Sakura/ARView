@@ -82,6 +82,11 @@ class SystemDisplay():
     def display(self, toDisplay, draw):
         self.clearDisplay(draw)
         draw.text((20, 10), toDisplay, fill="white")
-        print(f"--postDraw - {toDisplay}")
-        print(f"--postDrawWith - {toDisplay}")
+        print(f"--Normal Display - {toDisplay}")
+
+    def advDisplay(self, draw, toDisplay, w, h, clear=False):
+        if(clear):
+            self.clearDisplay(draw)
+        draw.text((w, h), toDisplay, fill="white")
+        print(f"--Advenced Display - {toDisplay}")
         

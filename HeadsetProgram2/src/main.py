@@ -61,6 +61,8 @@ class Main():
             appDisplay = self.appletObjects[self.currentApplet].getDisplay()
             
             with canvas(self.disp.device) as draw:
+                appletName = self.appletObjects[self.currentApplet].appletName
+                self.disp.advDisplay(draw, appletName, 0, 0)
                 self.disp.display(appDisplay, draw)
         
 
