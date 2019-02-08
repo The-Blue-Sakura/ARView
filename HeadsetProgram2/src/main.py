@@ -3,6 +3,7 @@ import time
 
 from DisplayApplet import SystemDisplay as Display
 from DisplayApplet import DisplayAnimations, DisplayHelpers
+from luma.core.render import canvas
 import Input
 import SecurityApplet
 
@@ -52,12 +53,13 @@ class Main():
 
         print("MAIN LOOP")
         input("PAUSE - PreLoop")
-        while self.running:
-            appInput = self.inputManager.getInput()
-            self.appletObjects[self.currentApplet].step(appInput)
-            appDisplay = self.appletObjects[self.currentApplet].getDisplay()
-            input("PREDISPLAY")
-            self.disp.display(appDisplay)
+        with canvas(self.disp.device) as draw:
+            while self.running:
+                appInput = self.inputManager.getInput()
+                self.appletObjects[self.currentApplet].step(appInput)
+                appDisplay = self.appletObjects[self.currentApplet].getDisplay()
+                input("PREDISPLAY")
+                self.disp.display(appDisplay, draw)
             
 
 if __name__ == '__main__':

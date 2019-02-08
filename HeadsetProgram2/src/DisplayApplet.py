@@ -3,7 +3,6 @@ import time
 
 from PIL import Image, ImageDraw, ImageFont
 from luma.core.interface.serial import i2c
-from luma.core.render import canvas
 from luma.oled.device import ssd1306
 from luma.core.render import canvas
 
@@ -74,15 +73,11 @@ class SystemDisplay():
         self.serial = i2c(port=1, address=0x3c)
         self.device = ssd1306(self.serial, width=128, height=32)
         self.running = True
-        with canvas(self.device) as draw:
-            self.clearDisplay(draw)
-            draw.text((20, 10), "INIT", fill="white")
 
     def clearDisplay(self, draw):
         draw.rectangle(self.device.bounding_box, outline="white", fill="black")
 
-    def display(self, toDisplay):
-        with canvas(self.device) as draw:
+    def display(self, toDisplay, draw):
             draw.text((30, 40), toDisplay, fill="white")
             print(f"--postDraw - {toDisplay}")
         print(f"--postDrawWith - {toDisplay}")
