@@ -59,12 +59,14 @@ class DisplayAnimations():
     def bootAnimation(disp, queue):
         loopable = True
         while loopable:
-            disp.display(DisplayHelpers.imgFromText("Welcome", 4, 4))
+            #disp.display(DisplayHelpers.imgFromText("Welcome", 4, 4)) # Old V2 Code
+            disp.display("Welcome!")
             time.sleep(0.05)
             if(not queue.empty()):
                 loopable = queue.get()
         while True:
-            disp.display(DisplayHelpers.imgFromText("Let's Do This!", 4, 4))
+            #disp.display(DisplayHelpers.imgFromText("Let's Do This!", 4, 4)) # Old V2 Code
+            disp.display("Let's Do This!")
             break
 
 class SystemDisplay():
@@ -73,6 +75,11 @@ class SystemDisplay():
         self.device = ssd1306(self.serial, width=128, height=32)
         self.running = True
 
+    def clearDisplay(self, draw):
+        draw.rectangle(self.device.bounding_box, outline="white", fill="black")
+
     def display(self, toDisplay):
-        self.device.display(toDisplay) # This should take the 128x64 image and display it on the OLED.
+        with canvas(self.device) as draw:
+            self.clearDisplay(draw)
+            draw.text((30, 40), toDisplay, fill="white")
         

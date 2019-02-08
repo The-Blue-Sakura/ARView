@@ -11,6 +11,9 @@ class timeApplet():
         self.now = "%s:%s:%s %s" % (Format.timeTwelveHour()[0], datetime.datetime.now().minute, datetime.datetime.now().second, Format.timeTwelveHour()[1])
     
     def getDisplay(self):
+        return self.now
+
+    def getDisplayV2(self):
         image = Image.new('1', (128,64))
         draw = ImageDraw.Draw(image)
         fnt = ImageFont.truetype('fonts/Hanken-Book.ttf', 10)

@@ -36,13 +36,17 @@ class CameraApplet():
             try:
                 self.camera.stop_recording()
                 self.camera.close()
-            catch(Exception e):
+            except:
                 pass
     
     def getDisplay(self):
-        image = Image.new('1', (128,64))
-        draw = ImageDraw.Draw(image)
-        fnt = ImageFont.truetype('fonts/Hanken-Book.ttf', 10)
-        draw.text((10,60), self.message, font=fnt, fill=(255))
-        del draw
-        return (image)
+        #Old V2 Code
+        #image = Image.new('1', (128,64))
+        #draw = ImageDraw.Draw(image)
+        #fnt = ImageFont.truetype('fonts/Hanken-Book.ttf', 10)
+        #draw.text((10,60), self.message, font=fnt, fill=(255))
+        #del draw
+        #return (image)
+
+        #New V1 Code
+        return (self.message)
