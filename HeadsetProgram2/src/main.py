@@ -53,14 +53,14 @@ class Main():
 
         print("MAIN LOOP")
         input("PAUSE - PreLoop")
-        with canvas(self.disp.device) as draw:
-            while self.running:
+        while self.running:
+            with canvas(self.disp.device) as draw:
                 appInput = self.inputManager.getInput()
                 self.appletObjects[self.currentApplet].step(appInput)
                 appDisplay = self.appletObjects[self.currentApplet].getDisplay()
                 input("PREDISPLAY")
                 self.disp.display(appDisplay, draw)
-            
+        
 
 if __name__ == '__main__':
     main = Main()
