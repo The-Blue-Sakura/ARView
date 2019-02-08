@@ -80,6 +80,5 @@ class SystemDisplay():
 
     def display(self, toDisplay):
         with canvas(self.device) as draw:
-            self.clearDisplay(draw)
             draw.text((30, 40), toDisplay, fill="white")
         

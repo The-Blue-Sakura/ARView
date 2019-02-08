@@ -51,10 +51,12 @@ class Main():
         displayTestProcess.join()
 
         print("MAIN LOOP")
+        input("PAUSE - PreLoop")
         while self.running:
             appInput = self.inputManager.getInput()
             self.appletObjects[self.currentApplet].step(appInput)
             appDisplay = self.appletObjects[self.currentApplet].getDisplay()
+            input("PREDISPLAY")
             self.disp.display(appDisplay)
             
 
