@@ -60,14 +60,14 @@ class DisplayAnimations():
         while loopable:
             #disp.display(DisplayHelpers.imgFromText("Welcome", 4, 4)) # Old V2 Code
             with canvas(disp.device) as draw:
-                disp.display("Welcome!")
+                disp.display("Welcome!", draw)
             time.sleep(0.05)
             if(not queue.empty()):
                 loopable = queue.get()
         while True:
             #disp.display(DisplayHelpers.imgFromText("Let's Do This!", 4, 4)) # Old V2 Code
             with canvas(disp.device) as draw:
-                disp.display("Let's Do This!")
+                disp.display("Let's Do This!", draw)
             break
 
 class SystemDisplay():
