@@ -47,6 +47,8 @@ class Main():
         self.currentApplet = self.applets.index("timeApplet") # Set the current applet to the time applet
         print(self.applets.index("timeApplet"))
         
+        time.sleep(2)
+
         print("SENDING ANIMATION EXIT COMMAND")
         queue.put(False)
         displayTestProcess.join()
