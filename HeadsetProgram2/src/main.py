@@ -33,8 +33,8 @@ class Main():
         #Establish Multiprocess Communication
         queue = Queue()
 
-        #displayTestProcess = Process(target=DisplayAnimations.bootAnimation, args=(self.disp, queue)) # Create a new process object to run the display test concurrently.
-        #displayTestProcess.start() # Start running the display test.
+        displayTestProcess = Process(target=DisplayAnimations.bootAnimation, args=(self.disp, queue)) # Create a new process object to run the display test concurrently.
+        displayTestProcess.start() # Start running the display test.
 
         self.security.verify() # Verify System Files
 
@@ -48,8 +48,8 @@ class Main():
         print(self.applets.index("timeApplet"))
         
         print("SENDING ANIMATION EXIT COMMAND")
-        #queue.put(False)
-        #displayTestProcess.join()
+        queue.put(False)
+        displayTestProcess.join()
 
         print("MAIN LOOP")
         while self.running:
