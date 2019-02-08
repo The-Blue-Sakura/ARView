@@ -13,7 +13,6 @@ class InputManager():
             self.bc = ButtonCommand()
     
     def getInput(self):
-        print("Get Input")
         if(InputManager.inputType == 0):
             return self.mg.getGesture(self)
         else:
