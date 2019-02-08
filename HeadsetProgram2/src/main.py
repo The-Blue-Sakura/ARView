@@ -62,8 +62,8 @@ class Main():
             
             with canvas(self.disp.device) as draw:
                 appletName = self.appletObjects[self.currentApplet].appletName
+                self.disp.display(appDisplay, draw) # Clears dislay before call, so must be first
                 self.disp.advDisplay(draw, appletName, 10, 10)
-                self.disp.display(appDisplay, draw)
         
 
 if __name__ == '__main__':
