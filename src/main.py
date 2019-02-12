@@ -21,8 +21,8 @@ class Main():
 
     def __init__(self):
         self.disp = Display() # Create an instance of the display test.
-        self.security = SecurityApplet.SecurityApplet() # Create an instance of the security applet
-        self.inputManager = Input.InputManager() # Create an instance of the Input Manager
+        #self.security = SecurityApplet.SecurityApplet() # Create an instance of the security applet
+        #self.inputManager = Input.InputManager() # Create an instance of the Input Manager
         self.running = False
         self.applets = []
         self.appletObjects = []
@@ -36,7 +36,7 @@ class Main():
         displayTestProcess = Process(target=DisplayAnimations.bootAnimation, args=(self.disp, queue)) # Create a new process object to run the display test concurrently.
         displayTestProcess.start() # Start running the display test.
 
-        self.security.verify() # Verify System Files
+        #self.security.verify() # Verify System Files
 
         self.applets = self.security.getVerifiedApplets() # Get a list of verified, installed applets
 
