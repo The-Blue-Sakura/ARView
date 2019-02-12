@@ -21,8 +21,8 @@ class Main():
 
     def __init__(self):
         self.disp = Display() # Create an instance of the display test.
-        #self.security = SecurityApplet.SecurityApplet() # Create an instance of the security applet
-        #self.inputManager = Input.InputManager() # Create an instance of the Input Manager
+        self.security = SecurityApplet.SecurityApplet() # Create an instance of the security applet
+        self.inputManager = Input.InputManager() # Create an instance of the Input Manager
         self.running = False
         self.applets = []
         self.appletObjects = []
