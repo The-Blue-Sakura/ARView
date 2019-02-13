@@ -64,9 +64,3 @@ class Main():
                 appletName = self.appletObjects[self.currentApplet].appletName
                 self.disp.display(appDisplay, draw) # Clears dislay before call, so must be first
                 self.disp.advDisplay(draw, appletName, 4, 0)
-        
-
-if __name__ == '__main__':
-    main = Main()
-    main.running = True
-    main.main()
