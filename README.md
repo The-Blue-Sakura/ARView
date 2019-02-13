@@ -2,8 +2,7 @@
 This is the main operating code for the Raspberry Pi powered Augmented Reality Headset.
 
 ToDo: 
-	Import Existing Code
-	Add Auto-Update Utility
-	Add Shared Numpy Array
-	Multithreading vs Multiprocessing
+	--ABANDONED-- Add Shared Numpy Array
 	Error Code and Diagnostic System
+	GPIO Button Input
+	Fancier Graphics
