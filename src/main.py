@@ -36,7 +36,7 @@ class Main():
         displayTestProcess = Process(target=DisplayAnimations.bootAnimation, args=(self.disp, queue)) # Create a new process object to run the display test concurrently.
         displayTestProcess.start() # Start running the display test.
 
-        #self.security.verify() # Verify System Files
+        self.security.verify() # Verify System Files
 
         self.applets = self.security.getVerifiedApplets() # Get a list of verified, installed applets
 

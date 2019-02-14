@@ -59,6 +59,7 @@ class FileScanner():
         return (same, different)
 
     def verifySystemFiles(self):
+        '''
         print("Verifying System Files.")
         
         try:
@@ -84,7 +85,8 @@ class FileScanner():
                 print("Display Applet Modified!")
         except Exception as e:
             self.security.writeError(e)
-
+        '''
+        
         print("Verifying Installed Applets.")
         secureAppletRegistry = AppletRegistry.readSecureRegistry()
         defaultAppletRegistry = AppletRegistry.readDefaultRegistry()
